@@ -1,0 +1,77 @@
+package com.company;
+import java.util.Random;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Random rand = new Random();
+        Scanner input = new Scanner(System.in);
+        double x;
+        double y;
+        double z;
+        int a;
+        int b;
+        int c;
+        int a1;
+        int b1;
+        System.out.println("Podaj x: ");
+        x = input.nextDouble();
+        System.out.println("Podaj y: ");
+        y = input.nextDouble();
+        System.out.println("Podaj z: ");
+        z = input.nextDouble();
+        System.out.println("Podaj a: ");
+        a = input.nextInt();
+        System.out.println("Podaj b: ");
+        b = input.nextInt();
+        a1 = rand.nextInt((b-a)+1)+a;
+        b1 = rand.nextInt((b-a)+1)+a;
+        c = rand.nextInt((b-a)+1)+a;
+        imie();
+        System.out.println(par(z));
+        System.out.println(pod(z));
+        System.out.println(pot(z));
+        System.out.println(square(z));
+        kalk(x,y);
+        System.out.println(troj(a1,b1,c));
+    }
+    public static void imie (){
+        System.out.println("Imię: Piotr");
+        System.out.println("Wiek: 21");
+    }
+    public static void kalk(double a, double b)
+    {
+        double c;
+        double d;
+        c=a+b;
+        d=a-b;
+        System.out.println("Suma: "+c);
+        System.out.println("Różnica: "+d);
+        System.out.println("Iloczyn: "+a*b);
+        System.out.println("Iloraz: "+a/b);
+    }
+    public static boolean par(double c)
+    {
+        if(c%2==0) return true;
+        else return false;
+    }
+    public static boolean pod(double c)
+    {
+        if(c%3==0 && c%5==0) return true;
+        else return false;
+    }
+    public static double pot(double c)
+    {
+        return Math.pow(c,3);
+    }
+    public static double square(double c)
+    {
+        return Math.sqrt(c);
+    }
+     public static boolean troj(double a, double b, double c)
+    {
+        if(a+b>c && a+c>b && b+c>a) return true;
+        else return false;
+    }
+}
