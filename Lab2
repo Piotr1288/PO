@@ -1,0 +1,227 @@
+package com.company;
+
+import java.time.Year;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        double a;
+        double b;
+        double c;
+        System.out.println("Podaj liczby: ");
+        a = input.nextInt();
+        b = input.nextInt();
+        c = input.nextInt();
+        if(a!=0)
+        {
+            kwad(a,b,c);
+        }
+        else {
+            System.out.println("To nie jest równanie kwadratowe.");
+        }
+        double x;
+        System.out.println("Podaj x: ");
+        x = input.nextDouble();
+        System.out.println("Funkcja a: "+a(x));
+        System.out.println("Funkcja b: "+b(x));
+        System.out.println("Funkcja c: "+c(x));
+
+        int x1;
+        int y;
+        int z;
+        System.out.println("Podaj liczby: ");
+        x1=input.nextInt();
+        y=input.nextInt();
+        z=input.nextInt();
+        sort(x1,y,z);
+        deszcz();
+        samochod();
+        kalk();
+    }
+
+    public static void sort(int x, int y, int z) {
+        int i;
+        for (i = 0; i < 3; i++) {
+            if (x >= z && x >= y) {
+                System.out.println(x);
+                if (x > 0) {
+                    x = x - (x + 1);
+                } else {
+                    x = x + (x - 1);
+                }
+            } else if (y >= z && y >= x) {
+                System.out.println(y);
+                if (y > 0) {
+                    y = y - (y + 1);
+                } else {
+                    y = y + (y - 1);
+                }
+            } else if (z >= x && z >= y) {
+                System.out.println(z);
+                if (z > 0) {
+                    z = z - (z + 1);
+                } else {
+                    z = z + (z - 1);
+                }
+            }
+
+        }
+
+    }
+
+    public static double a(double x) {
+        double w = 0;
+        if (x > 0) {
+            w = 2 * x;
+        }
+        if (x == 0) {
+            w = 0;
+        }
+        if (x < 0) {
+            w = -3 * x;
+        }
+        return w;
+    }
+
+    public static double b(double x) {
+        double w = 0;
+        if (x >= 1) {
+            w = Math.pow(x, 2);
+        }
+        if (x < 1) {
+            w = x;
+        }
+        return w;
+    }
+
+    public static double c(double x) {
+        double w = 0;
+        if (x > 2) {
+            w = 2 + x;
+        }
+        if (x == 2) {
+            w = 8;
+        }
+        if (x < 2) {
+            w = x - 4;
+        }
+        return w;
+    }
+
+    public static void kwad(double a, double b, double c) {
+        double d;
+        double x1;
+        double x2;
+        d = (b * b) - 4 * (a * c);
+        if (d < 0) {
+            System.out.println("Równanie nie ma pierwiastków");
+        }
+        if (d > 0) {
+            x1 = (-b - Math.sqrt(d)) / (2 * a);
+            x2 = (-b + Math.sqrt(d)) / (2 * a);
+            System.out.println("Wyniki to: " + x1 + " i " + x2);
+        }
+        if (d == 0) {
+            x1 = -b / (2 * a);
+            System.out.println("Wynik to: " + x1);
+        }
+    }
+
+    public static void deszcz() {
+        Scanner input = new Scanner(System.in);
+        int x;
+        int y;
+        System.out.println("Czy pada deszcz?");
+        System.out.println("Tak = [1]");
+        System.out.println("Nie = [2]");
+        x = input.nextInt();
+        System.out.println("Czy autobus stoi na przystanku?");
+        System.out.println("Tak = [1]");
+        System.out.println("Nie = [2]");
+        y = input.nextInt();
+        if (x == 1 && y == 1) {
+            System.out.println("Weź parasol, dostaniesz się na uczelnie");
+        } else if (x == 1 && y != 1) {
+            System.out.println("Nie dostaniesz się na uczelnię");
+        } else if (x != 1 && y == 1) {
+            System.out.println("Dostaniesz się na uczelnie, miłego dnia i pięknej pogody");
+        }
+    }
+
+    public static void samochod() {
+        Scanner input = new Scanner(System.in);
+        int x;
+        int y;
+        System.out.println("Masz zniżkę na samochód?");
+        System.out.println("Tak = [1]");
+        System.out.println("Nie = [2]");
+        x = input.nextInt();
+        System.out.println("Otrzymałeś premię?");
+        System.out.println("Tak = [1]");
+        System.out.println("Nie = [2]");
+        y = input.nextInt();
+        if (x == 2 || y == 1) {
+            System.out.println("Możesz kupić samochód! Zniżki na samochód nie ma");
+        } else if (x != 1 || y != 1) {
+            System.out.println("Zakup samochód trzebaodłożyć na później, zniżki na samochód nie ma");
+        } else if (x == 1 && y == 1) {
+            System.out.println("Możesz kupić samochód !");
+        }
+    }
+
+    public static void kalk() {
+        Scanner input = new Scanner(System.in);
+        int a;
+        Double x;
+        Double y;
+        Double z;
+        System.out.println("Wybierz operację: ");
+        System.out.println("[1]=Dodawanie");
+        System.out.println("[2]=Odejmowanie");
+        System.out.println("[3]=Mnożenie");
+        System.out.println("[4]=Dzielenie");
+        System.out.println("[5]=Reszta z dzielenia");
+        a = input.nextInt();
+        switch (a) {
+            case 1:
+                System.out.println("Podaj liczby: ");
+                x = input.nextDouble();
+                y = input.nextDouble();
+                z = x + y;
+                System.out.println("Wynik: " + z);
+                break;
+            case 2:
+                System.out.println("Podaj liczby: ");
+                x = input.nextDouble();
+                y = input.nextDouble();
+                z = x - y;
+                System.out.println("Wynik: " + z);
+                break;
+            case 3:
+                System.out.println("Podaj liczby: ");
+                x = input.nextDouble();
+                y = input.nextDouble();
+                z = x * y;
+                System.out.println("Wynik: " + z);
+                break;
+            case 4:
+                System.out.println("Podaj liczby: ");
+                x = input.nextDouble();
+                y = input.nextDouble();
+                z = x / y;
+                System.out.println("Wynik: " + z);
+                break;
+            case 5:
+                System.out.println("Podaj liczby: ");
+                x = input.nextDouble();
+                y = input.nextDouble();
+                z = x % y;
+                System.out.println("Wynik: " + z);
+                break;
+            default:
+                System.out.println("Podano nie właściwą liczbę.");
+        }
+    }
+}
