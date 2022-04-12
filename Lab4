@@ -1,0 +1,47 @@
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int i, suma=0;
+        double suma2=0;
+        int [] tab ={10,5,20};
+        boolean [] tab2= new boolean [20];
+        double [] tab3={10,5,20};
+    for(i=0; i<3; i++)
+    {
+        suma=suma+tab [i];
+    }
+         System.out.println("Suma: "+suma);
+        System.out.println("Średnia: "+suma/3);
+        suma=0;
+        for ( int j : tab) {
+           suma=suma+j;
+        }
+        System.out.println("Suma(foreach): "+suma);
+        System.out.println("Średnia(foreach): "+suma/3);
+        for(int k=0;k<20;k++)
+        {
+            if(k%2==0 || k==0)
+            {
+                tab2[k]=true;
+            }else {
+                tab2[k]=false;
+            }
+            System.out.println(tab2[k]);
+        }
+        for (double h: tab3) {
+            suma2=suma2+h;
+        }
+        double xs;
+        double y,suma3=0,z,s;
+        xs=suma2/3;
+        for (int g=0;g<3;g++){
+            y=tab3[g]-xs;
+            z=y*y;
+            suma3=suma3+z;
+        }
+        s=suma3/(3-1);
+        System.out.println("Wariancja wynosi: "+(s));
+    }
+}
